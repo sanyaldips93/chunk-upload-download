@@ -79,7 +79,7 @@ Returns every filename currently known to the server (handy for testing).
 
 bash
 curl http://localhost:3000/list
-# ["MyDoc.pdf","Holiday.mp4"]
+["MyDoc.pdf"]
 How it works
 Chunk & hash
 
