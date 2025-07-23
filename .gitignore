@@ -1,0 +1,18 @@
+# Ignore ALL node_modules directories (at any level)
+**/node_modules/
+
+# Ignore ALL .env files (at any level)
+**/.env
+**/.env.*
+
+# Optional: Ignore common development files
+.DS_Store       # macOS metadata
+.idea/          # JetBrains IDE
+.vscode/        # VS Code settings
+dist/           # Common build output
+*.log           # Log files
+
+
+**/package-lock.json/
+**/chunks/
+**/manifests/

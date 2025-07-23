@@ -1,0 +1,15 @@
+{
+  "name": "pdf-uploader",
+  "version": "1.0.0",
+  "description": "Simple Node.js app to upload PDFs, chunk them, hash chunks, and deduplicate",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1"
+  },
+  "author": "Perplexity AI",
+  "license": "MIT"
+}
