@@ -1,4 +1,4 @@
-Crash-Resilient Chunk-Based Deduplicating File Store (Node .js)
+<h1>Crash-Resilient Chunk-Based Deduplicating File Store (Node .js)</h1>
 Tiny proof-of-concept server that:
 
 Accepts large binary uploads (PDFs only).
@@ -13,19 +13,20 @@ After a crash or restart, rebuilds all in-memory indexes by scanning those manif
 
 Reconstructs and streams any stored file on demand.
 
-Project layout
+<h2>Project layout</h2>
 text
 chunk-uploader/
 ├── server.js        ← main application
 ├── package.json
 ├── chunks/          ← binary chunk blobs   (auto-created)
 └── manifests/       ← per-file JSON docs  (auto-created)
-Prerequisites
+
+<h2>Prerequisites</h2>
 Node .js 16 + (or 14 + with ES2019 support)
 
 npm (comes with Node)
 
-Quick start
+<h2>Quick start</h2>
 bash
 git clone <repo-or-paste-code> chunk-uploader
 cd pdffileuploader
@@ -34,7 +35,7 @@ npm start              # server listens on http://localhost:3000
 
 
 
-API reference
+<h2>API reference</h2>
 1. POST /upload
 Uploads a file and stores only brand-new chunks.
 
@@ -122,14 +123,14 @@ Download
 
 Looks up chunk list, fs.readFileSync’s each <hash>.chunk, Buffer.concat, streams result.
 
-Configuration knobs
+<h2>Configuration knobs</h2>
 Environment variable	Default	Meaning
 PORT	3000	HTTP listen port
 CHUNK_SIZE	1048576	bytes per chunk (change only if you wipe existing data)
 MAX_FILE_SIZE	2147483648	2 GB upload cap (set in multer)
 Change them by editing server.js or exporting env vars before npm start.
 
-Limitations / TODO
+<h2>Limitations / TODO</h2>
 Single process / single host – no clustering; use a DB/DHT for multi-node dedup.
 
 Manifests load into RAM – fine for thousands of files; migrate to SQLite/LevelDB for millions.
@@ -140,7 +141,7 @@ No virus scanning / MIME validation – add as middleware if your use-case deman
 
 Fixed-size chunks – switch to content-defined chunking for better overlap on edited videos.
 
-Extending
+<h2>Extending</h2>
 Persist to SQLite – Replace the manifest scan with SQL tables for O(1) startup.
 
 Content-type aware – Store req.file.mimetype in the manifest and send it back in the download route.
@@ -151,5 +152,5 @@ S3 / GCS backend – Write chunks to object storage; keep only the manifest DB l
 
 JWT auth + user quotas – Track who owns which files, throttle by storage used.
 
-License
+<h2>License</h2>
 MIT – do anything you want, at your own risk.
